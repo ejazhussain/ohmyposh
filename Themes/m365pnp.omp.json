@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "foreground": "#000000",
+          "background": "#fcb040",
+          "template": "{{ .UserName }} "
+        },
+        {
+          "type": "text",
+          "style": "powerline",
+          "foreground": "#ffffff",
+          "background": "#f66f2b",
+          "powerline_symbol": "\ue0b0",
+          "template": " \uf07b {{ .Folder }} "
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "foreground": "#000",
+          "background": "#1de9b6",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "branch_icon": "",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "template": " ({{ if and (gt .Behind 0) (gt .Ahead 0) }}\uf021{{ else if gt .Behind 0 }}\uf063{{ else if gt .Ahead 0 }}\uf062{{ else if .Working.Changed }}\uf044{{ else }}\ue725{{ end }} {{ .HEAD }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}) "
+        }
+      ]
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
